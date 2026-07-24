@@ -1,0 +1,37 @@
+</div>
+            </div>
+
+            <div class="eval-box">
+                <div class="box-header" onclick="toggleBox('str-content', 'str-btn')">
+                    <span>Strengths</span>
+                    <button class="toggle-btn" id="str-btn">+</button>
+                </div>
+                <div class="box-content" id="str-content">
+                    <ul>
+                        <li>✓ Strong Communication</li>
+                        <li>✓ Good Technical Knowledge</li>
+                        <li>✓ Clear Problem Solving Skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="start-btn">Start New Interview</a>
+    </div>
+
+    <script>
+        function toggleBox(contentId, btnId) {
+            var content = document.getElementById(contentId);
+            var btn = document.getElementById(btnId);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                btn.textContent = "+";
+            } else {
+                content.style.display = "block";
+                btn.textContent = "-";
+            }
+        }
+    </script>
+
+</body>
+</html>

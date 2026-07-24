@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewIQ - Upload Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .logo-badge {
+            background-color: #d8cbf5;
+            color: #5c35d4;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        h1 { font-size: 24px; color: #111; margin-bottom: 30px; }
+        .upload-section {
+            border: 2px dashed #e2e2e8;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: #fcfcfd;
+        }
+        .upload-label { display: block; color: #555; margin-bottom: 15px; }
+        .file-input {
+            border: 1px solid #e2e2e8;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .form-group { text-align: left; margin-bottom: 30px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #222; }
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e2e8;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background-color: #5c35d4;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover { background-color: #4a2ab0; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <span class="logo-badge">IQ</span>
+            <span style="font-size: 20px; font-weight: bold; color: #111;">InterviewIQ</span>
+        </div>
+
+        <h1>Upload Your Resume</h1>
+
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="upload-section">
+                <label class="upload-label">Attach your CV/Resume</label>
+                <input type="file" name="resume" class="file-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="job_position">Select Job Position</label>
+                <select id="job_position" name="job_position" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Start Interview</button>
+        </form>
+    </div>
+
+</body>
+</html>
