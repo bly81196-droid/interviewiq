@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InterviewIQ - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: #f4f1f8;
+            font-family: Arial, sans-serif;
+        }
+        .main-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            width: 700px;
+            margin: 40px auto;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .logo-box-custom {
+            background-color: #d1c4e9;
+            color: #512da8;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .logo-text-custom {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .score-badge {
+            background: #d1c4e9;
+            color: #4527a0;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+            margin: 15px 0 30px 0;
+        }
+        .sections-wrapper {
+            display: flex;
+            gap: 20px;
+            text-align: left;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        .evaluation-box {
+            flex: 1;
+            background: #d1c4e9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .evaluation-box h3 {
+            margin: 0;
+            color: #333;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .evaluation-box h3::after {
+            content: '+';
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .evaluation-box.active h3::after {
+            content: '-';
+        }
+        .sub-list {
+            display: none;
+            margin-top: 12px;
+            padding-left: 15px;
+            font-size: 14px;
+            color: #333;
+            list-style-type: disc;
+        }
+        .sub-list li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <!-- الهيدر والشعار -->
+        <div class="logo-header">
+            <div class="logo-box-custom">IQ</div>
+            <div class="logo-text-custom">InterviewIQ</div>
+        </div>
+        
+        <h2>AI Interview Evaluation</h2>
+        
+        <!-- الدرجة -->
+        <div>
+            <div class="score-badge">
+                Overall Score<br>{{ score }} / 100
+            </div>
+        </div>
+
+        <!-- الأقسام -->
+        <div class="sections-wrapper">
+            
+            <!-- Areas for Improvement -->
+            <div class="evaluation-box" onclick="toggleBox(this)">
+                <h3>Areas for Improvement</h3>
+                <ul class="sub-list">
+                    <li>Provide more project examples</li>
+                    <li>Improve answer structure</li>
+                    <li>Add more technical details</li>
+                </ul>
+            </div>
+
+            <!-- Strengths -->
+            <div class="evaluation-box" onclick="toggleBox(this)">
+                <h3>Strengths</h3>
+                <ul class="sub-list">
+                    <li>✓ Strong Communication</li>
+                    <li>✓ Good Technical Knowledge</li>
+                    <li>✓ Clear Problem Solving Skills</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- زر البدء من جديد -->
+        <a href="{{ url_for('home') }}" class="btn" style="width: 100%; box-sizing: border-box; text-align: center; text-decoration: none;">Start New Interview</a>
+    </div>
+
+    <script>
+        function toggleBox(clickedBox) {
+            const allBoxes = document.querySelectorAll('.evaluation-box');
+            
+            allBoxes.forEach(box => {
+                const list = box.querySelector('.sub-list');
+                if (box === clickedBox) {
+                    // تبديل حاله المربع المضغط عليه فقط
+                    if (list.style.display === 'block') {
+                        list.style.display = 'none';
+                        box.classList.remove('active');
+                    } else {
+                        list.style.display = 'block';
+                        box.classList.add('active');
+                    }
+                } else {
+                    // إغلاق المربع الآخر لضمان عدم تداخلهم
+                    list.style.display = 'none';
+                    box.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
