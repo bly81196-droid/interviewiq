@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InterviewIQ - Upload CV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <div class="logo-area" style="justify-content: center;">
+            <div class="logo-box">IQ</div>
+            <div class="logo-text">InterviewIQ</div>
+        </div>
+        
+        <h2>Upload Your Resume</h2>
+        
+        <form action="{{ url_for('interview') }}" method="POST" enctype="multipart/form-data">
+            <div style="border: 2px dashed #ccc; padding: 25px; border-radius: 8px; margin: 20px 0; background: #f9f7fc;">
+                <input type="file" name="cv_file" required style="margin-bottom: 10px;">
+            </div>
+            
+            <div style="margin-bottom: 20px; text-align: left;">
+                <label style="font-weight: 600; color: #333; display: block; margin-bottom: 5px;">Select Job Position</label>
+                <select name="job_position" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; background-color: #fff;">
+                    <option value="" disabled selected>Select</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="it">Information Technology</option>
+                    <option value="cyber">Cybersecurity</option>
+                    <option value="software">Software Engineer</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; cursor: pointer;">Start Interview</button>
+        </form>
+    </div>
+</body>
+</html>
