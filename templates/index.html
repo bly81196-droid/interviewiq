@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewIQ - AI Mock Interview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        .content { flex: 1; }
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .logo-badge {
+            background-color: #d8cbf5;
+            color: #5c35d4;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 32px;
+            color: #111;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .start-btn {
+            background-color: #5c35d4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+        .start-btn:hover { background-color: #4a2ab0; }
+        .illustration {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content">
+            <div class="header-badge">
+                <span class="logo-badge">IQ</span>
+                <span style="font-size: 18px; font-weight: bold; color: #111;">InterviewIQ</span>
+            </div>
+
+            <h1>Interview<br>Practice with AI</h1>
+            <p>Upload your CV and get personalized interview questions and feedback.</p>
+            
+            <a href="/upload" class="start-btn">Start Interview</a>
+        </div>
+        
+        <div class="illustration">
+            <!-- استدعاء الصورة من مجلد static (تأكدي أن اسم صورتك images.jpg) -->
+            <img src="{{ url_for('static', filename='images.jpg') }}" alt="AI Interview Illustration">
+        </div>
+    </div>
+
+</body>
+</html>
